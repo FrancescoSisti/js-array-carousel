@@ -4,3 +4,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.carousel-container {
+    width: 400px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: relative;
+    overflow: hidden;
+    height: 500px;
+}
+
+.carousel img {
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    /* Posizioniamo le immagini in modo assoluto */
+    top: 0;
+    left: 0;
+    opacity: 0;
+    /* Nascondiamo tutte le immagini tranne quella attiva */
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* .active {
+    opacity: 1;
+} */
