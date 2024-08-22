@@ -46,8 +46,34 @@ liberamente se scurire le altre immagini oppure se evidenziarla semplicemente co
 all'immagine attiva deve evidenziarsi, scegliete voi l'effetto estetico, potete colorarla diversamente rispetto 
 alle altre o aggiungere un semplice bordo.*/
 
+
+//Si recuperano gli elementi in pagina
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const images = document.querySelectorAll('.carousel img');
 
-images[0].classList.add('active');
+
+//Do la classe active alla prima immagine
+let currentActiveIndex = 0;
+images[currentActiveIndex].classList.add('active');
+
+nextButton.addEventListener('click', function () {
+    //Togliamo la classe active all'immagine attualmente attiva
+    images[currentActiveIndex].classList.remove('active');
+    //Incremento l'indice
+    currentActiveIndex++;
+    //Metto la classe active allímmagine successiva
+    images[currentActiveIndex].classList.add('active');
+
+})
+
+prevButtonButton.addEventListener('click', function () {
+
+
+    //Togliamo la classe active all'immagine attualmente attiva
+    images[currentActiveIndex].classList.remove('active');
+    //Decremento l'indice
+    currentActiveIndex--;
+    //Metto la classe active allímmagine successiva
+    images[currentActiveIndex].classList.add('active');
+})
