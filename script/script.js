@@ -46,11 +46,26 @@ liberamente se scurire le altre immagini oppure se evidenziarla semplicemente co
 all'immagine attiva deve evidenziarsi, scegliete voi l'effetto estetico, potete colorarla diversamente rispetto 
 alle altre o aggiungere un semplice bordo.*/
 
+//Preparo le sorgenti dell'immagine
+const sources = ['img/01.webp', 'img/02.webp', 'img/03.webp', 'img/04.webp', 'img/05.webp'];
 
 //Si recuperano gli elementi in pagina
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
-const images = document.querySelectorAll('.carousel img');
+const carouselGallery = document.querySelector('.gallery');
+
+//Genero le immagini da JS
+for (let i = 0; i < sources.length; i++) {
+    const src = sources[i];
+    const image = document.createElement('img');
+    image.src = sources[i];
+    image.src = src;
+    image.alt = `landscape-${i + 1}`;
+    carouselGallery.appendChild(image);
+}
+
+const images = document.querySelectorAll('#carousel img');
+console.log(images);
 
 
 //Do la classe active alla prima immagine
@@ -58,22 +73,39 @@ let currentActiveIndex = 0;
 images[currentActiveIndex].classList.add('active');
 
 nextButton.addEventListener('click', function () {
+
+    if (currentActiveIndex === images.length - 1) return;
+
     //Togliamo la classe active all'immagine attualmente attiva
     images[currentActiveIndex].classList.remove('active');
+
     //Incremento l'indice
     currentActiveIndex++;
+
+    //Controlliamo se siamo fuori array
+    if (currentActiveIndex === images.length) {
+        currentActiveIndex = 0;
+    }
+
     //Metto la classe active allímmagine successiva
     images[currentActiveIndex].classList.add('active');
 
 })
 
-prevButtonButton.addEventListener('click', function () {
+prevButton.addEventListener('click', function () {
 
+    if (currentActiveIndex === 0) return;
 
     //Togliamo la classe active all'immagine attualmente attiva
     images[currentActiveIndex].classList.remove('active');
+
     //Decremento l'indice
     currentActiveIndex--;
+
+    if (currentActiveIndex < 0) {
+        currentActiveIndex = images.length - 1;
+    }
+
     //Metto la classe active allímmagine successiva
     images[currentActiveIndex].classList.add('active');
 })

@@ -274,25 +274,25 @@ p {
     }
 }
 
-.carousel {
+#carousel {
     height: 400px;
     width: 700px;
     margin: 30px auto;
     position: relative;
 }
 
-.carousel .gallery {
+#carousel .gallery {
     height: 100%;
 }
 
-.carousel img {
+#carousel img {
     width: 100%;
-    height: 100%;
+    height: 50px;
     border-radius: 10px;
     display: none;
 }
 
-.carousel .fa-solid {
+#carousel .fa-solid {
     font-size: 2rem;
     position: absolute;
     top: 85%;
